@@ -11,6 +11,7 @@
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link      https://github.com/sio-melun/geoworld
  */
+session_start ();
 ?><!doctype html>
 <html lang="fr" class="h-100">
 <head>
@@ -72,12 +73,19 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+        <?php if(!isset($_SESSION['login'])):?>
         <li class="nav-item">
           <a class="nav-link" href="login">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="register">Register</a>
+          <a class="nav-link" href="register.php">Register</a>
         </li>
+        <?php endif ?>
+        <?php if(isset($_SESSION['login'])):?>
+          <li class="nav-item">
+          <a class="nav-link"><?php echo $_SESSION['login'];?></a>
+        </li>
+        <?php endif ?>
         <li class="nav-item">
           <a class="nav-link " href="todo-projet.php">
             Présentation-Atelier-de-Prof-SLAM
