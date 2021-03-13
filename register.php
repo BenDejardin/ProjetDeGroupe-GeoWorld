@@ -34,7 +34,7 @@
 	?>
 	<form action="register.php" method="POST">
 		<p>Login : <input type="text" name="login" required></p>
-		<p>Password : <input type="text" name="pwd" required></p>
+		<p>Password : <input type="password" name="pwd" required></p>
 		<p>Mon rôle : </p>
 		<p><input type="radio" name="role" value="Eleve"> Élève</p>
 		<p><input type="radio" name="role" value="Professeur"> Professeur</p>

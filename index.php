@@ -54,7 +54,7 @@ $desPays = getCountriesByContinent($continent);
         ?>
         </code>
     </p>
-    <section class="jumbotron">
+    <!-- <section class="jumbotron">
       <div class="container">
         <h1 class="jumbotron-heading">Tableau d'objets</h1>
         <p>Le contenu ci-dessus représente une vue "debug" du premier élément d'un tableau. Ce tableau est
@@ -75,7 +75,7 @@ $desPays = getCountriesByContinent($continent);
             Cette section ne s'auto-détruit pas automatiquement, ce sera à vous de le faire, une fois compris son message !
           </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </main>
 
