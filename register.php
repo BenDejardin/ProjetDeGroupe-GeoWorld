@@ -38,7 +38,7 @@
 		<p>Mon rôle : </p>
 		<p><input type="radio" name="role" value="Eleve"> Élève</p>
 		<p><input type="radio" name="role" value="Professeur"> Professeur</p>
-		<input type="submit" value="OK">
+		<input type="submit" value="S'inscrire">
 	</form>
 	
 </body>
