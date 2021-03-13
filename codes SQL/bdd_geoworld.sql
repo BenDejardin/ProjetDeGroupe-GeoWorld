@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 11 mars 2021 à 16:04
+-- Généré le : sam. 13 mars 2021 à 10:58
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -38,7 +38,7 @@ CREATE TABLE `salaries` (
 --
 
 INSERT INTO `salaries` (`login`, `password`, `role`) VALUES
-('axbenclé', 'clébenax', 'admin');
+('axbencle', 'clebenax', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
