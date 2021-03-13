@@ -75,7 +75,7 @@ session_start ();
       <ul class="navbar-nav ml-auto">
         <?php if(!isset($_SESSION['login'])):?>
         <li class="nav-item">
-          <a class="nav-link" href="login">Login</a>
+          <a class="nav-link" href="login.php">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="register.php">Register</a>
