@@ -20,10 +20,21 @@ require_once 'header.php';
 
 require_once 'inc/manager-db.php';
 if (!isset($_GET["continent"])) {
- $_GET["continent"] = "Asia";
+ ?>
+ <style type="text/css">
+  body{
+   background-image: url("images/map-index.png");
+   background-repeat:no-repeat;
+   background-position: center 3em;
+  }
+ </style>
+
+ <?php
 }
-$continent = $_GET["continent"];
-$desPays = getCountriesByContinent($continent);
+
+else{
+  $continent = $_GET["continent"];
+  $desPays = getCountriesByContinent($continent);
 ?>
 
 <main role="main" class="flex-shrink-0">
@@ -56,6 +67,7 @@ $desPays = getCountriesByContinent($continent);
 </main>
 
 <?php
+}
 require_once 'javascripts.php';
 require_once 'footer.php';
 ?>
