@@ -12,14 +12,12 @@
  * @link      https://github.com/sio-melun/geoworld
  */
 
-?>
-<?php  require_once 'header.php'; 
+require_once 'header.php'; 
 // session_start ();
 // echo $_SESSION['login'];
 // echo $_SESSION['pwd'];
 // echo $_SESSION['role'];
-?>
-<?php
+
 require_once 'inc/manager-db.php';
 if (!isset($_GET["continent"])) {
  $_GET["continent"] = "Asia";
