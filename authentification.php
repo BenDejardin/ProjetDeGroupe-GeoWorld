@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Authentification</title>
+	 <link rel="icon" type="image/png" sizes="16x16" href="./images/logo_nav.png">
 </head>
 <body>
 	<form action="login.php" method="post">

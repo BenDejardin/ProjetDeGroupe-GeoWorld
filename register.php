@@ -5,6 +5,8 @@
 </head>
 <body>
 	<?php
+	require_once 'header.php'; 
+	
 	// on la démarre la session
 	session_start ();
 	// on enregistre les paramètres de notre visiteur comme variables de session
