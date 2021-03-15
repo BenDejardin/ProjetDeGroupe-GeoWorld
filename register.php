@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Register</title>
+	<title>Inscription</title>
+	<link rel="icon" type="image/png" sizes="16x16" href="./images/logo_nav.png">
 </head>
 <body>
 	<?php
-	require_once 'header.php'; 
-	
 	// on la démarre la session
 	session_start ();
 	// on enregistre les paramètres de notre visiteur comme variables de session

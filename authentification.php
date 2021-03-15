@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Authentification</title>
+	<title>Connexion</title>
 	 <link rel="icon" type="image/png" sizes="16x16" href="./images/logo_nav.png">
 </head>
 <body>
