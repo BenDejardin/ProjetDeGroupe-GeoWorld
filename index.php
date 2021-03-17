@@ -43,13 +43,27 @@ else{
     <h1>Les pays en <?php echo"$continent"; ?></h1>
     <div>
      <table class="table">
-         <tr>
-           <th>Nom</th>
-           <th>Population</th>
-         </tr>
+        <tr>
+          <th>Drapeau</th>
+          <th>Nom</th>
+          <th>Population</th>
+        </tr>
             <?php foreach ($desPays as $pays) :?>    
           <tr>
+            <?php 
+              $filename = strtolower($pays->Code2);
+              if (file_exists("images/drapeau/".$filename.".png")):?>
+                <td><img src="images/drapeau/<?php echo $filename; ?>.png"/></td>
+              <?php endif; 
+
+              if (!file_exists("images/drapeau/".$filename.".png")):?>?>
+                <td></td>
+              <?php endif;?>
+
+
+
             <td><?php echo $pays->Name ?></td>
+            
             <td>
               <?php 
                 $Population =number_format($pays->Population, 0,' ', ' ');
