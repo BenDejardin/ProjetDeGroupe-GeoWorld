@@ -50,7 +50,12 @@ else{
             <?php foreach ($desPays as $pays) :?>    
           <tr>
             <td><?php echo $pays->Name ?></td>
-            <td><?php echo $pays->Population ?></td>
+            <td>
+              <?php 
+                $Population =number_format($pays->Population, 0,' ', ' ');
+                echo $Population; 
+              ?>
+            </td>
           </tr>
        <?php endforeach;?>
           </tr>
