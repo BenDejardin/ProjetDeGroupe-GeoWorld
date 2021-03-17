@@ -56,7 +56,7 @@ else{
                 <td><img src="images/drapeau/<?php echo $filename; ?>.png"/></td>
               <?php endif; 
 
-              if (!file_exists("images/drapeau/".$filename.".png")):?>?>
+              if (!file_exists("images/drapeau/".$filename.".png")):?>
                 <td></td>
               <?php endif;?>
 
