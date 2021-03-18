@@ -60,3 +60,42 @@ function getAllCountries()
     $query = 'SELECT * FROM Country;';
     return $pdo->query($query)->fetchAll();
 }
+
+function getCountriesWithId($id)
+{
+   global $pdo;
+    $query = 'SELECT * FROM Country WHERE id = :id;';
+    $prep = $pdo->prepare($query);
+    
+    $prep->bindValue(':id', $id, PDO::PARAM_STR);
+    $prep->execute();
+   
+
+    return $prep->fetchAll();
+}
+
+function LangueParler($id)
+{
+   global $pdo;
+    $query = "SELECT idCountry,language.Name,countrylanguage.Percentage FROM countrylanguage,country,language WHERE countrylanguage.idLanguage=language.id AND countrylanguage.idCountry=country.id AND countrylanguage.idCountry = :id ORDER BY countrylanguage.Percentage DESC;";
+    $prep = $pdo->prepare($query);
+    
+    $prep->bindValue(':id', $id, PDO::PARAM_STR);
+    $prep->execute();
+   
+
+    return $prep->fetchAll();
+}
+
+function DataEconomiqueSociale($id)
+{
+    global $pdo;
+    $query = "SELECT `Population`,`GNP`,`HeadOfState` FROM `country` WHERE id = :id;";
+    $prep = $pdo->prepare($query);
+    
+    $prep->bindValue(':id', $id, PDO::PARAM_STR);
+    $prep->execute();
+   
+
+    return $prep->fetchAll();
+}

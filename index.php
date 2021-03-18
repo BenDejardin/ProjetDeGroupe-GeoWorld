@@ -47,6 +47,7 @@ else{
           <th>Drapeau</th>
           <th>Nom</th>
           <th>Population</th>
+          <th>Information</th>
         </tr>
             <?php foreach ($desPays as $pays) :?>    
           <tr>
@@ -60,8 +61,6 @@ else{
                 <td></td>
               <?php endif;?>
 
-
-
             <td><?php echo $pays->Name ?></td>
             
             <td>
@@ -70,6 +69,9 @@ else{
                 echo $Population; 
               ?>
             </td>
+
+            <td><a href="moreInfo.php?id=<?php echo $pays->id ?> " >+ d'Information</a></td>
+
           </tr>
        <?php endforeach;?>
           </tr>

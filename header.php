@@ -63,13 +63,13 @@ session_start ();
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false">Continents</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="?continent=Asia">Asia</a>
-            <a class="dropdown-item" href="?continent=Europe">Europe</a>
-            <a class="dropdown-item" href="?continent=North+America">North America</a>
-            <a class="dropdown-item" href="?continent=Africa">Africa</a>
-            <a class="dropdown-item" href="?continent=Oceania">Oceania</a>
-            <a class="dropdown-item" href="?continent=Antarctica">Antarctica</a>
-            <a class="dropdown-item" href="?continent=South+America">South America</a>
+            <a class="dropdown-item" href="index.php?continent=Asia">Asia</a>
+            <a class="dropdown-item" href="index.php?continent=Europe">Europe</a>
+            <a class="dropdown-item" href="index.php?continent=North+America">North America</a>
+            <a class="dropdown-item" href="index.php?continent=Africa">Africa</a>
+            <a class="dropdown-item" href="index.php?continent=Oceania">Oceania</a>
+            <a class="dropdown-item" href="index.php?continent=Antarctica">Antarctica</a>
+            <a class="dropdown-item" href="index.php?continent=South+America">South America</a>
           </div>
         </li>
       </ul>
