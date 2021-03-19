@@ -11,8 +11,14 @@
  * @license   http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link      https://github.com/sio-melun/geoworld
  */
+
 session_start ();
-?><!doctype html>
+require_once 'inc/manager-db.php';
+
+$continents = GetContinents();
+?>
+
+<!doctype html>
 <html lang="fr" class="h-100">
 <head>
   <meta charset="utf-8">
@@ -63,13 +69,11 @@ session_start ();
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false">Continents</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="index.php?continent=Asia">Asia</a>
-            <a class="dropdown-item" href="index.php?continent=Europe">Europe</a>
-            <a class="dropdown-item" href="index.php?continent=North+America">North America</a>
-            <a class="dropdown-item" href="index.php?continent=Africa">Africa</a>
-            <a class="dropdown-item" href="index.php?continent=Oceania">Oceania</a>
-            <a class="dropdown-item" href="index.php?continent=Antarctica">Antarctica</a>
-            <a class="dropdown-item" href="index.php?continent=South+America">South America</a>
+   
+          <?php foreach ($continents as $continent) :?>
+              <a class="dropdown-item" href="index.php?continent=<?php echo $continent->Continent; ?>"><?php echo $continent->Continent; ?></a>
+          <?php endforeach ; ?>   
+
           </div>
         </li>
       </ul>
@@ -84,7 +88,7 @@ session_start ();
         <?php endif ?>
         <?php if(isset($_SESSION['login'])):?>
           <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+          <a class="nav-link dropdown-toggle" href="index.php" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false"><?php echo $_SESSION['login']?></a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="deconnexion.php">Déconnexion</a>

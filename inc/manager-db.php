@@ -99,3 +99,10 @@ function DataEconomiqueSociale($id)
 
     return $prep->fetchAll();
 }
+
+function GetContinents()
+{
+    global $pdo;
+    $query = 'SELECT DISTINCT `Continent` FROM `country` ORDER BY `Continent` ASC';
+    return $pdo->query($query)->fetchAll();
+}
