@@ -66,7 +66,7 @@ else{
             <td>
               <?php 
                 $Population =number_format($pays->Population, 0,' ', ' ');
-                echo $Population; 
+                echo $Population." hab."; 
               ?>
             </td>
 

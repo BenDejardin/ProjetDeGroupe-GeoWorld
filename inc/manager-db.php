@@ -106,3 +106,16 @@ function GetContinents()
     $query = 'SELECT DISTINCT `Continent` FROM `country` ORDER BY `Continent` ASC';
     return $pdo->query($query)->fetchAll();
 }
+
+function City($id)
+{
+    global $pdo;
+    $query = "SELECT * FROM `city` WHERE idCountry = :id;";
+    $prep = $pdo->prepare($query);
+    
+    $prep->bindValue(':id', $id, PDO::PARAM_STR);
+    $prep->execute();
+   
+
+    return $prep->fetchAll();
+}
