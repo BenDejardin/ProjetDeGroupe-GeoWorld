@@ -102,7 +102,7 @@
 				
         </table>
 
-        <?php if($_SESSION['role']=="Professeur"): ?>
+        <?php if(!empty($_SESSION['role']) && $_SESSION['role']=="Professeur"): ?>
         <h3>Données actualisées :</h3>
 
         <form action="moreInfo.php?id=<?php echo $pays->id ?>">
@@ -136,6 +136,7 @@
 		        $result = $pdo->query($query)->fetchAll();?>
 		         <meta http-equiv="refresh" content="1; url=moreInfo.php?id=<?php echo $pays->id ?>"/><?php
 		    }	?>
-        <?php endif;?>
-		<?php endforeach;?>	
-    <?php endforeach;?>
+        <?php endif;
+
+		 endforeach;
+     endforeach;?>
