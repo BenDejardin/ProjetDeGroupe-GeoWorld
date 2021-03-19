@@ -2,6 +2,7 @@
 	require_once 'header.php';
 	require_once 'inc/manager-db.php';
 	require_once 'inc/connect-db.php';
+	require_once 'javascripts.php';
 
 	$id = $_GET['id'];
 
@@ -100,7 +101,7 @@
         	</tr>
 				
         </table>
-        
+
         <?php if($_SESSION['role']=="Professeur"): ?>
         <h3>Données actualisées :</h3>
 

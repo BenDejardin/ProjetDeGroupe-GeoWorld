@@ -88,7 +88,7 @@ $continents = GetContinents();
         <?php endif ?>
         <?php if(isset($_SESSION['login'])):?>
           <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="index.php" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false"><?php echo $_SESSION['login']?></a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="deconnexion.php">Déconnexion</a>
