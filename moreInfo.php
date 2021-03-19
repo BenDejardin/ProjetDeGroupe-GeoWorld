@@ -8,8 +8,9 @@
 
 	$infoPays = getCountriesWithId($id);
 	$langueParler = LangueParler($id);
-	$donneesEconomiqueSociale = DataEconomiqueSociale($id)
-	// print_r($langueParler);
+	$donneesEconomiqueSociale = DataEconomiqueSociale($id);
+	$city = City($id);
+	// print_r($city);
 ?>
 
 <style type="text/css">
@@ -53,6 +54,30 @@
             	</h2>
         <?php endif;?>
 
+        <h3>Informations Villes :</h3>
+
+        <table class="table">
+        	<tr>
+        		<th>Nom de la Ville</th>
+        		<th>District</th>
+        		<th>Population</th>
+        	</tr>
+        	<tr>	
+        		<?php foreach ($city as $ville) :?>
+        			<tr>
+        				<td><?php echo $ville->Name ; ?></td>
+        				<td><?php echo $ville->District?></td>	
+        				<td>
+        					<?php 
+				        		$Population = number_format($ville->Population, 0,' ', ' ');
+				                echo $Population." hab."; 
+	                		?>	
+        				</td>
+        			</tr>
+        		<?php endforeach;?>
+        	</tr>
+        </table>
+
         <h3>Langues parlées :</h3>
 
         <table class="table">
@@ -80,7 +105,7 @@
         		<td>
 	        		<?php 
 		        		$Population = number_format($ecoSocial->Population, 0,' ', ' ');
-		                echo $Population; 
+		                echo $Population." hab."; 
 	                ?>
                 </td>		
         	</tr>
@@ -94,7 +119,7 @@
 	                ?>
                 </td>
         	</tr>
-        	
+       
         	<tr>
         		<th>Chef D'état</th>
         		<td><?php echo $ecoSocial->HeadOfState; ?></td>
