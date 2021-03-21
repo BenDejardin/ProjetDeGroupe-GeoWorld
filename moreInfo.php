@@ -38,6 +38,9 @@
     .FormInput { 
     	width:100px;
     }
+    table{
+    	width: 100%;
+    }
 </style>
 	
 	<?php foreach ($infoPays as $pays) :?>  
@@ -159,7 +162,7 @@
 
 		        $query="UPDATE country SET Population=$population,GNP=$pnb,HeadOfState='$chefEtat' WHERE id=$id";
 		        $result = $pdo->query($query)->fetchAll();?>
-		         <meta http-equiv="refresh" content="1; url=moreInfo.php?id=<?php echo $pays->id ?>"/><?php
+		         <meta http-equiv="refresh" content="0; url=moreInfo.php?id=<?php echo $pays->id ?>"/><?php
 		    }	?>
         <?php endif;
 

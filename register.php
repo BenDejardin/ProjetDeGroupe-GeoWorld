@@ -23,11 +23,10 @@
 		$password = $_SESSION['pwd'];
 		$role = $_SESSION['role']; 
 		
-		$requete = "INSERT INTO `salaries` (`login`,`password`,`role`) VALUES('$login','$password','$role')";
+		$requete = "INSERT INTO `informations_utilisateurs` (`login`,`password`,`role`) VALUES('$login','$password','$role')";
 		//echo $requete;
 		mysqli_query($conn,$requete);
 		header ('location: index.php');
-
 	}
 ?>
 	<form action="register.php" method="POST">

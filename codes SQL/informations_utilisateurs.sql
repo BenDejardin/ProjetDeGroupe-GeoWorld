@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : sam. 13 mars 2021 à 10:58
+-- Généré le : Dim 21 mars 2021 à 06:04
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -24,21 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `salaries`
+-- Structure de la table `informations_utilisateurs`
 --
 
-CREATE TABLE `salaries` (
+CREATE TABLE `informations_utilisateurs` (
   `login` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `role` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `salaries`
+-- Déchargement des données de la table `informations_utilisateurs`
 --
 
-INSERT INTO `salaries` (`login`, `password`, `role`) VALUES
-('axbencle', 'clebenax', 'admin');
+INSERT INTO `informations_utilisateurs` (`login`, `password`, `role`) VALUES
+('axbencle', 'clebenax', 'admin'),
+('guyon', 'sio', 'Professeur'),
+('BenDejardin', 'sio', 'Eleve'),
+('Axel', 'sio', 'Eleve');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
