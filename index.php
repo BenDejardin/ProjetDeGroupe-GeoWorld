@@ -47,6 +47,7 @@ else{
           <th>Drapeau</th>
           <th>Nom</th>
           <th>Population</th>
+          <th>Superficie</th>
           <th>Information</th>
         </tr>
             <?php foreach ($desPays as $pays) :?>    
@@ -67,6 +68,13 @@ else{
               <?php 
                 $Population =number_format($pays->Population, 0,' ', ' ');
                 echo $Population." hab."; 
+              ?>
+            </td>
+
+            <td>
+              <?php 
+                $Superficie =number_format($pays->SurfaceArea, 0,' ', ' ');
+                echo $Superficie." km²"; 
               ?>
             </td>
 
