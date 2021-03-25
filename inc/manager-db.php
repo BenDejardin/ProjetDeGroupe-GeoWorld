@@ -61,59 +61,85 @@ function getAllCountries()
     return $pdo->query($query)->fetchAll();
 }
 
-function getCountriesWithId($id)
+
+/**
+* Obtenir la liste avec toute les informations du pays
+* @param $idCountry id d'un pays
+* @return array d'objet de type info
+*/
+function getInfosPays($idCountry)
 {
    global $pdo;
-    $query = 'SELECT * FROM Country WHERE id = :id;';
+    $query = "SELECT * FROM `country` WHERE id = :id;";
     $prep = $pdo->prepare($query);
     
-    $prep->bindValue(':id', $id, PDO::PARAM_STR);
+    $prep->bindValue(':id', $idCountry, PDO::PARAM_INT);
     $prep->execute();
    
 
     return $prep->fetchAll();
 }
 
-function LangueParler($id)
+/**
+* Obtenir la liste des langues parlees dans un pays 
+* @param $idCountry id d'un pays
+* @return array d'objet de type langues
+*/
+function getDifferentesLangues($idCountry)
 {
    global $pdo;
     $query = "SELECT idCountry,language.Name,countrylanguage.Percentage FROM countrylanguage,country,language WHERE countrylanguage.idLanguage=language.id AND countrylanguage.idCountry=country.id AND countrylanguage.idCountry = :id ORDER BY countrylanguage.Percentage DESC;";
     $prep = $pdo->prepare($query);
     
-    $prep->bindValue(':id', $id, PDO::PARAM_STR);
+    $prep->bindValue(':id', $idCountry, PDO::PARAM_INT);
     $prep->execute();
    
 
     return $prep->fetchAll();
 }
 
-function DataEconomiqueSociale($id)
+/**
+* Obtenir la liste des continents dans le monde
+* @param $idCountry id d'un pays
+* @return array d'objet de type economiques et sociales
+*/
+function getDonneesEconomiqueSociale($idCountry)
 {
     global $pdo;
     $query = "SELECT `Population`,`GNP`,`HeadOfState` FROM `country` WHERE id = :id;";
     $prep = $pdo->prepare($query);
     
-    $prep->bindValue(':id', $id, PDO::PARAM_STR);
+    $prep->bindValue(':id', $idCountry, PDO::PARAM_INT);
     $prep->execute();
    
 
     return $prep->fetchAll();
 }
 
-function GetContinents()
+/**
+* Obtenir la liste des continents dans le monde
+* 
+* @return array d'objet de type contients
+*/
+function getContinents()
 {
     global $pdo;
     $query = 'SELECT DISTINCT `Continent` FROM `country` ORDER BY `Continent` ASC';
     return $pdo->query($query)->fetchAll();
 }
 
-function City($id)
+/**
+* Obtenir la liste des villes d'un pays
+* @param $idCountry id d'un pays
+* @return array d'objet de type city
+*/
+function getCityFromIdCountry($idCountry)
 {
     global $pdo;
-    $query = "SELECT * FROM `city` WHERE idCountry = :id;";
+    $query = "SELECT * FROM `city` WHERE id = :id;";
     $prep = $pdo->prepare($query);
     
-    $prep->bindValue(':id', $id, PDO::PARAM_STR);
+    $prep->bindValue(':id', $idCountry, PDO::PARAM_INT);
     $prep->execute();
    
 

@@ -15,7 +15,7 @@
 session_start ();
 require_once 'inc/manager-db.php';
 
-$continents = GetContinents();
+$continents = getContinents();
 ?>
 
 <!doctype html>

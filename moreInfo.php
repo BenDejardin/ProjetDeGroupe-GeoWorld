@@ -4,12 +4,12 @@
 	require_once 'inc/connect-db.php';
 	require_once 'javascripts.php';
 
-	$id = $_GET['id'];
+	$idCountry = $_GET['id'];
 
-	$infoPays = getCountriesWithId($id);
-	$langueParler = LangueParler($id);
-	$donneesEconomiqueSociale = DataEconomiqueSociale($id);
-	$city = City($id);
+	$infosPays = getInfosPays($idCountry);
+	$langues = getDifferentesLangues($idCountry);
+	$donneesEconomiqueSociale = getDonneesEconomiqueSociale($idCountry);
+	$cities = getCityFromIdCountry($idCountry);
 	// print_r($city);
 ?>
 
@@ -43,7 +43,7 @@
     }
 </style>
 	
-	<?php foreach ($infoPays as $pays) :?>  
+	<?php foreach ($infosPays as $pays) :?>  
         <h2><?php echo $pays->Name ?>
             
         <?php 
@@ -66,14 +66,14 @@
         		<th>Population</th>
         	</tr>
         	<tr>	
-        		<?php foreach ($city as $ville) :?>
+        		<?php foreach ($cities as $ville) :?>
         			<tr>
         				<td><?php echo $ville->Name ; ?></td>
         				<td><?php echo $ville->District?></td>	
         				<td>
         					<?php 
-				        		$Population = number_format($ville->Population, 0,' ', ' ');
-				                echo $Population." hab."; 
+				        		$population = number_format($ville->Population, 0,' ', ' ');
+				                echo $population." hab."; 
 	                		?>	
         				</td>
         			</tr>
@@ -89,7 +89,7 @@
         		<th>Pourcentage</th>
         	</tr>
         	<tr>
-        		<?php foreach ($langueParler as $langue) :?>
+        		<?php foreach ($langues as $langue) :?>
         			<tr>
         				<td><?php echo $langue->Name ; ?></td>
         				<td><?php echo $langue->Percentage." %"; ?></td>	
@@ -104,10 +104,10 @@
         	<tr> 
         		<th>Population</th>
         	
-        	<?php foreach ($donneesEconomiqueSociale as $ecoSocial) :?>
+        	<?php foreach ($donneesEconomiqueSociale as $ecoSociale) :?>
         		<td>
 	        		<?php 
-		        		$Population = number_format($ecoSocial->Population, 0,' ', ' ');
+		        		$Population = number_format($ecoSociale->Population, 0,' ', ' ');
 		                echo $Population." hab."; 
 	                ?>
                 </td>		
@@ -117,7 +117,7 @@
         		<th>PNB</th>
         		<td>
 	        		<?php 
-		        		$PNB = number_format($ecoSocial->GNP, 0,' ', ' ');
+		        		$PNB = number_format($ecoSociale->GNP, 0,' ', ' ');
 		                echo $PNB." €"; 
 	                ?>
                 </td>
@@ -125,7 +125,7 @@
        
         	<tr>
         		<th>Chef D'état</th>
-        		<td><?php echo $ecoSocial->HeadOfState; ?></td>
+        		<td><?php echo $ecoSocials->HeadOfState; ?></td>
         	</tr>
 				
         </table>
@@ -134,19 +134,19 @@
         <h3>Données actualisées :</h3>
 
         <form action="moreInfo.php?id=<?php echo $pays->id ?>">
-        	<input type="hidden" name="id" value=<?php echo $id ?>>
+        	<input type="hidden" name="id" value=<?php echo $idCountry ?>>
         	<div class="FormLigne">
    				<span class="FormLibelle">Population :</span>
-   				<input type="number" name="Population" class="FormInput" value=<?php echo $ecoSocial->Population; ?>>
+   				<input type="number" name="Population" class="FormInput" value=<?php echo $ecoSociale->Population; ?>>
 			</div>
 			<div class="FormLigne">
    				<span class="FormLibelle">PNB :</span>
-   				<input type="number" name="PNB" class="FormInput" value=<?php echo $ecoSocial->GNP; ?>>
+   				<input type="number" name="PNB" class="FormInput" value=<?php echo $ecoSociale->GNP; ?>>
 			</div>
 
 			<div class="FormLigne">
    				<span class="FormLibelle">Chef D'état :</span>
-   				<input type="text" name="ChefEtat" class="FormInput" value=<?php echo $ecoSocial->HeadOfState; ?>>
+   				<input type="text" name="ChefEtat" class="FormInput" value=<?php echo $ecoSociale->HeadOfState; ?>>
 			</div>
 
         	<input type="submit" name="ok" value="Modifier">
@@ -160,7 +160,7 @@
 		        $chefEtat=$_REQUEST['ChefEtat'];
 		       
 
-		        $query="UPDATE country SET Population=$population,GNP=$pnb,HeadOfState='$chefEtat' WHERE id=$id";
+		        $query="UPDATE country SET Population=$population,GNP=$pnb,HeadOfState='$chefEtat' WHERE id=$idCountry";
 		        $result = $pdo->query($query)->fetchAll();?>
 		         <meta http-equiv="refresh" content="0; url=moreInfo.php?id=<?php echo $pays->id ?>"/><?php
 		    }	?>
