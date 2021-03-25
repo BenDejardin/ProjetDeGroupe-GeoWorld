@@ -21,15 +21,18 @@ require_once 'header.php';
 require_once 'inc/manager-db.php';
 if (!isset($_GET["continent"])) {
  ?>
- <style type="text/css">
+
+
+ <!-- <style type="text/css">
   body{
    background-image: url("images/map-index.png");
    background-repeat:no-repeat;
    background-position: center 3em;
   }
- </style>
+ </style> -->
 
  <?php
+ require_once 'demo_world.html';
 }
 
 else{
