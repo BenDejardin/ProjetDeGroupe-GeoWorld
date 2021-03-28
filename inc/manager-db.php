@@ -64,16 +64,16 @@ function getAllCountries()
 
 /**
 * Obtenir la liste avec toute les informations du pays
-* @param $idCountry id d'un pays
+* @param $nameCountry nom d'un pays
 * @return array d'objet de type info
 */
-function getInfosPays($idCountry)
+function getInfosPays($nameCountry)
 {
    global $pdo;
-    $query = "SELECT * FROM `country` WHERE id = :id;";
+    $query = "SELECT * FROM `country` WHERE name = :nameCountry;";
     $prep = $pdo->prepare($query);
     
-    $prep->bindValue(':id', $idCountry, PDO::PARAM_INT);
+    $prep->bindValue(':nameCountry', $nameCountry, PDO::PARAM_STR);
     $prep->execute();
    
 
@@ -136,10 +136,10 @@ function getContinents()
 function getCityFromIdCountry($idCountry)
 {
     global $pdo;
-    $query = "SELECT * FROM `city` WHERE id = :id;";
+    $query = "SELECT * FROM `city` WHERE idCountry = :idCountry;";
     $prep = $pdo->prepare($query);
     
-    $prep->bindValue(':id', $idCountry, PDO::PARAM_INT);
+    $prep->bindValue(':idCountry', $idCountry, PDO::PARAM_INT);
     $prep->execute();
    
 

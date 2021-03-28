@@ -32,7 +32,7 @@ if (!isset($_GET["continent"])) {
  </style> -->
 
  <?php
- require_once 'demo_world.html';
+ require_once 'demo_world.php';
 }
 
 else{
@@ -81,7 +81,7 @@ else{
               ?>
             </td>
 
-            <td><a href="moreInfo.php?id=<?php echo $pays->id ?> " >+ d'Information</a></td>
+            <td><a href="moreInfo.php?Name=<?php echo $pays->Name ?> " >+ d'Information</a></td>
 
           </tr>
        <?php endforeach;?>

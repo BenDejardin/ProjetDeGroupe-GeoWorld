@@ -3,14 +3,16 @@
 	require_once 'inc/manager-db.php';
 	require_once 'inc/connect-db.php';
 	require_once 'javascripts.php';
-
-	$idCountry = $_GET['id'];
-
-	$infosPays = getInfosPays($idCountry);
+	
+	$nomPays = $_GET['Name'];
+	$infosPays = getInfosPays($nomPays);
+	foreach ($infosPays as $pays) {
+		$idCountry = $pays->id;
+	}
 	$langues = getDifferentesLangues($idCountry);
 	$donneesEconomiqueSociale = getDonneesEconomiqueSociale($idCountry);
 	$cities = getCityFromIdCountry($idCountry);
-	// print_r($city);
+	
 ?>
 
 <style type="text/css">
@@ -125,7 +127,7 @@
        
         	<tr>
         		<th>Chef D'état</th>
-        		<td><?php echo $ecoSocials->HeadOfState; ?></td>
+        		<td><?php echo $ecoSociale->HeadOfState; ?></td>
         	</tr>
 				
         </table>
