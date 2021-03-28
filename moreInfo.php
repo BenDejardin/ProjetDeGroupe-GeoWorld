@@ -4,10 +4,15 @@
 	require_once 'inc/connect-db.php';
 	require_once 'javascripts.php';
 	
-	$nomPays = $_GET['Name'];
-	$infosPays = getInfosPays($nomPays);
-	foreach ($infosPays as $pays) {
-		$idCountry = $pays->id;
+	if (!isset ($_GET['id'])) {
+		$nomPays = $_GET['Name'];
+		$infosPays = getInfosPays($nomPays);
+		foreach ($infosPays as $pays) {
+			$idCountry = $pays->id;
+		}
+	}
+	else{
+		$idCountry = $_GET['id'];
 	}
 	$langues = getDifferentesLangues($idCountry);
 	$donneesEconomiqueSociale = getDonneesEconomiqueSociale($idCountry);
@@ -135,8 +140,8 @@
         <?php if(!empty($_SESSION['role']) && $_SESSION['role']=="Professeur"): ?>
         <h3>Données actualisées :</h3>
 
-        <form action="moreInfo.php?id=<?php echo $pays->id ?>">
-        	<input type="hidden" name="id" value=<?php echo $idCountry ?>>
+        <form action="moreInfo.php?Name=<?php echo $pays->Name ?>">
+        	<input type="hidden" name="Name" value=<?php echo $nomPays ?>>
         	<div class="FormLigne">
    				<span class="FormLibelle">Population :</span>
    				<input type="number" name="Population" class="FormInput" value=<?php echo $ecoSociale->Population; ?>>
@@ -156,15 +161,16 @@
 
         	<?php
         	if (isset($_REQUEST['ok'])) {
-        
+        		
+        		$nomPays=$_REQUEST['Name'];
 		        $population=$_REQUEST['Population'];
 		        $pnb=$_REQUEST['PNB'];
 		        $chefEtat=$_REQUEST['ChefEtat'];
 		       
 
-		        $query="UPDATE country SET Population=$population,GNP=$pnb,HeadOfState='$chefEtat' WHERE id=$idCountry";
+		        $query="UPDATE country SET Population=$population,GNP=$pnb,HeadOfState='$chefEtat' WHERE Name='$nomPays'";
 		        $result = $pdo->query($query)->fetchAll();?>
-		         <meta http-equiv="refresh" content="0; url=moreInfo.php?id=<?php echo $pays->id ?>"/><?php
+		         <meta http-equiv="refresh" content="0; url=moreInfo.php?Name=<?php echo $pays->Name ?>"/><?php
 		    }	?>
         <?php endif;
 
