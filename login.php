@@ -6,7 +6,7 @@
 empty($_POST['login'])) {
 	 
 	 // on appele la fonction getAuthentification en lui passant en paramètre le login et password
-	 function getAuthentification($login,$pass){
+	 function getAuthentifications($login,$pass){
 		 global $pdo;
 		 $query = "SELECT * FROM informations_utilisateurs where login=:login and password=:pass";
 		 $prep = $pdo->prepare($query);
@@ -22,7 +22,7 @@ empty($_POST['login'])) {
 		 return false;
 	}
 
-	$result = getAuthentification($_POST['login'],$_POST['pwd']);
+	$result = getAuthentifications($_POST['login'],$_POST['pwd']);
 	 print_r($result);
 	 // si le résulat n'est pas false
 	 if($result){
