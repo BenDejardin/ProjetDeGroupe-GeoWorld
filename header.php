@@ -92,6 +92,11 @@ $continents = getContinents();
              aria-expanded="false"><?php echo $_SESSION['login']?></a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="deconnexion.php">Déconnexion</a>
+            <?php if($_SESSION['role'] == "admin"):?>
+            <a class="dropdown-item" href="updateUtil.php">Modifier les informations Utilisateurs</a>
+            <?php else : ?>
+            <a class="dropdown-item" href="updateUtil.php">Modifier votre Password</a>
+            <?php endif; ?>
           </div>
         </li>
         <?php endif ?>
