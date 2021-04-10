@@ -9,21 +9,24 @@ empty($_POST['login'])) {
 	 function getAuthentifications($login,$pass){
 		 global $pdo;
 		 $query = "SELECT * FROM informations_utilisateurs where login=:login and password=:pass";
+		 
 		 $prep = $pdo->prepare($query);
+		 
 		 $prep->bindValue(':login', $login);
 		 $prep->bindValue(':pass', $pass);
 		 $prep->execute();
+
 		 // on vérifie que la requête ne retourne qu'une seule ligne
 		 if($prep->rowCount() == 1){
 		 $result = $prep->fetch();
+		 print_r($result);
 		 return $result;
 		 }
 		 else
 		 return false;
 	}
-
 	$result = getAuthentifications($_POST['login'],$_POST['pwd']);
-	 print_r($result);
+	 // print_r($result);
 	 // si le résulat n'est pas false
 	 if($result){
 		// on la démarre la session
@@ -46,4 +49,4 @@ empty($_POST['login'])) {
  else {
  header ('location: authentification.php');
  }
- ?> 
+ ?>
