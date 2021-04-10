@@ -145,3 +145,4 @@ function getCityFromIdCountry($idCountry)
 
     return $prep->fetchAll();
 }
+
