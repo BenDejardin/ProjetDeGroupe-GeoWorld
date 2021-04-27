@@ -4,6 +4,39 @@
 	require_once 'inc/connect-db.php';
 	require_once 'javascripts.php';
 	
+    ?> 
+    <style type="text/css">
+        h2{
+            text-align: center;
+        }
+        h3{
+            font-size: 20px;
+            text-decoration: underline;
+        }
+        p,h3{
+            font-weight: bold;
+        }
+        form,h3{
+            padding-left: 12px;
+        }
+        .Formligne { 
+            display: block;
+            width:300px; 
+        }
+        .FormLibelle { 
+            display: inline-block;
+            width:100px; 
+        }
+        .FormInput { 
+            width:100px;
+        }
+        table{
+            width: 100%;
+        }
+    </style>
+    
+    <?php
+
 	if (!isset ($_GET['id'])) {
 		$nomPays = $_GET['Name'];
 		$infosPays = getInfosPays($nomPays);
@@ -14,59 +47,39 @@
 	else{
 		$idCountry = $_GET['id'];
 	}
-	$langues = getDifferentesLangues($idCountry);
-	$donneesEconomiqueSociale = getDonneesEconomiqueSociale($idCountry);
-	$cities = getCityFromIdCountry($idCountry);
+
+    if (!isset($idCountry)):?>
+        <!-- <meta http-equiv="refresh" content="0; url=index.php"/> -->
+        <p>Erreur : le nom du pays ne figure pas dans notre base de donnée</p>
+    <?php
+    else :
+       $langues = getDifferentesLangues($idCountry);
+        $donneesEconomiqueSociale = getDonneesEconomiqueSociale($idCountry);
+        $cities = getCityFromIdCountry($idCountry); 
+    endif;
+	
 	
 ?>
 
-<style type="text/css">
-	h2{
-		text-align: center;
-	}
-	h3{
-		font-size: 20px;
-		text-decoration: underline;
-	}
-	p,h3{
-		font-weight: bold;
-	}
-	form,h3{
-		padding-left: 12px;
-	}
-	.Formligne { 
-		display: block;
-		width:300px; 
-	}
-    .FormLibelle { 
-    	display: inline-block;
-		width:100px; 
-    }
-    .FormInput { 
-    	width:100px;
-    }
-    table{
-    	width: 100%;
-    }
-</style>
+
 	
+
+
 	<?php foreach ($infosPays as $pays) :?>  
+    <?php if (!empty($pays->Name)): ?> 
         <h2><?php echo $pays->Name ?>
             
-        <?php 
-            $filename = strtolower($pays->Code2);
-            if (file_exists("images/drapeau/".$filename.".png")):?>
-            	<img src="images/drapeau/<?php echo $filename; ?>.png"/>
-        <?php endif;?> </h2>
+            <?php 
+                $filename = strtolower($pays->Code2);
+                if (file_exists("images/drapeau/".$filename.".png")):?>
+                	<img src="images/drapeau/<?php echo $filename; ?>.png"/>
+            <?php endif;?>
 
-        <?php
-            if (!file_exists("images/drapeau/".$filename.".png")):?>
-            	</h2>
-        <?php endif;?>
+        </h2>
 
         <h3>Informations Villes :</h3>
 
-        <table class="table">
+        <table class="table table-striped table-bordered dt-responsive nowrap"> 
         	<tr>
         		<th>Nom de la Ville</th>
         		<th>District</th>
@@ -90,7 +103,7 @@
 
         <h3>Langues parlées :</h3>
 
-        <table class="table">
+        <table class="table table-striped table-bordered dt-responsive nowrap">
         	<tr>
         		<th>Nom</th>
         		<th>Pourcentage</th>
@@ -107,7 +120,7 @@
 
         <h3>Données économiques et sociales :</h3>
 
-        <table class="table">
+        <table class="table table-striped table-bordered dt-responsive nowrap">
         	<tr> 
         		<th>Population</th>
         	
@@ -175,4 +188,7 @@
         <?php endif;
 
 		 endforeach;
-     endforeach;?>
+        endif;
+     endforeach;
+
+?>
