@@ -59,12 +59,6 @@ $continents = getContinents();
         <li class="nav-item active">
           <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false">Continents</a>
@@ -107,9 +101,18 @@ $continents = getContinents();
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="text" placeholder="Rechercher votre pays" aria-label="Search" name="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </form>
+      <?php if (isset($_GET['Search'])){
+        
+        $recherche = $_GET['Search'];
+        header('Location: moreInfo.php?Name='.$recherche);
+
+      } 
+        
+
+      ?>
     </div>
   </nav>
 </header>
