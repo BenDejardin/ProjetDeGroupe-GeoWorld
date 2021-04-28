@@ -6,11 +6,12 @@
 	
 ?>
 
-<table>
+<table class="table table-striped table-bordered dt-responsive nowrap">
 
 	<th>Login</th>
 	<th>Password</th>
 	<th>Rôle</th>
+	<th></th>
 	
 	<?php if ($_SESSION['role'] == "admin" ): 
 		$allUtilsGeoworld = getAllUtilisateurs();
@@ -41,6 +42,7 @@
 			 		<td><input type="submit" name="Modifier"></td>
 			 	</tr>
 		 	</form>
+
 	<?php 
 		endforeach; 
 		endif;
