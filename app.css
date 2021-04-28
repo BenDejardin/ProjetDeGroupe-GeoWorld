@@ -1,0 +1,21 @@
+.map__image path{
+    fill: #a4ced2;
+    stroke: #FFF;
+    stroke-width: 1px;
+    transition: fill 0.3s;
+}
+
+.map__image path:hover{
+    fill: #3538d2;
+    stroke: #FFF;
+}
+
+.map__list a{
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.map__image{
+	margin-left: 20%;
+}
