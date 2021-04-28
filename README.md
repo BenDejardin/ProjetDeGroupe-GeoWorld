@@ -1,2 +1,5 @@
-﻿# ProjetDeGroupe-GeoWorld
-Projet en création 
+﻿# GeoWorld
+ # Auteur
+ Anguille Clément
+ Dejardin Benjamin
+ Elise Axel
