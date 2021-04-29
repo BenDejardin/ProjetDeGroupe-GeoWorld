@@ -26,7 +26,7 @@ Nous nous sommes réparties les diverses taches via trello
 Nous nous somme servis d'un serveur apache puis aussi un serveur MYSQL ainsi que la version 7 de php et la technologie SVG pour faire la carte responsive
 ## III- Installation du projet
   On a d'abord verifier que tout les service comme Apache, mysql était installé ensuite nous avons crée la base de donnée par ligne de commande car il y avait une erreur quand on passais par la version GUI de phpmyadmin
-### IV- Projet
+## IV- Projet
   * Partie html&css 
 La partie html consistait dans un premier temps a modifier toutes les écritures du site pour ce l'approprier puis la création des formulaires. 
   * Partie PHP
