@@ -20,7 +20,7 @@
 ***
 ## I- Qu'est ce que Geoworld ?
 ### Le sujet
-L'objectif du projet géoworld était de crée  un site internet qui regroupe une carte ainsi que les informations des différents pays puis des modification selon notre rôle  d'abo
+L'objectif du projet géoworld était de crée  un site internet qui regroupe une carte ainsi que les informations des différents pays puis des modification selon notre rôle.
 Nous nous sommes réparties les diverses taches via trello 
 ## II- Service utilisé
 Nous nous somme servis d'un serveur apache puis aussi un serveur MYSQL ainsi que la version 7 de php et la technologie SVG pour faire la carte responsive
