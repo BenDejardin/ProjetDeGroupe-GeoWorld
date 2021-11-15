@@ -34,7 +34,7 @@ function getCountriesByContinent($continent)
 {
     // pour utiliser la variable globale dans la fonction
     global $pdo;
-    $query = 'SELECT * FROM Country WHERE Continent = :cont;';
+    $query = 'SELECT * FROM country WHERE Continent = :cont;';
     $prep = $pdo->prepare($query);
     // on associe ici (bind) le paramètre (:cont) de la req SQL,
     // avec la valeur reçue en paramètre de la fonction ($continent)
@@ -57,7 +57,7 @@ function getCountriesByContinent($continent)
 function getAllCountries()
 {
     global $pdo;
-    $query = 'SELECT * FROM Country;';
+    $query = 'SELECT * FROM country;';
     return $pdo->query($query)->fetchAll();
 }
 
